@@ -10,7 +10,7 @@
       bottom
       right
       color="blue"
-      @click="$vuetify.goTo('#recipe-list');"
+      @click="$vuetify.goTo('#app');"
     >
       <v-icon>expand_less</v-icon>
     </v-btn>

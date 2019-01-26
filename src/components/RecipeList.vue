@@ -1,5 +1,5 @@
 <template>
-<div class="py-3" id="recipe-list">
+<div class="py-3">
   <v-layout column fill-height>
     <v-card flat v-if="recipes.length <= 0 && searchKeywords === ''">
       <v-card-title>
@@ -64,9 +64,9 @@
                     <v-layout row wrap>
                       <v-flex xs12 sm4 md3>
                         <h4 class="pb-1 pt-2">Durations:</h4>
-                        <span class="recipe-materials">
+                        <div class="recipe-materials pb-2">
                           {{ recipe.durations }}
-                        </span>
+                        </div>
                       </v-flex>
                       <v-flex xs12 sm8 md9>
                         <h4 class="pb-1 pt-2">HP/SP Discharge:</h4>
