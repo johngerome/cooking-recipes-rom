@@ -104,7 +104,10 @@
                       </v-flex>
                       <v-flex xs12 sm8 md9>
                         <h4 class="pb-1 pt-3">Station:</h4>
-                        <p class="recipe-materials">{{ recipe.utensil }}</p>
+                        <p class="recipe-materials">
+                          <img :src="recipe.utensilImageUrl" height="15" />
+                          {{ recipe.utensil }}
+                          </p>
                       </v-flex>
                     </v-layout>
                   </v-flex>
