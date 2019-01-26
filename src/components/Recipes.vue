@@ -103,20 +103,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.recipe-img {
-  max-width: 100%;
-  max-height: 60px;
-}
-.recipe-materials {
-  color: #666;
-}
-.v-card {
-  border-bottom: 0;
-
-  h4 {
-    color: #333;
-  }
-}
-</style>
