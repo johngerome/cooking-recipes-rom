@@ -61,7 +61,6 @@ export default {
     }
   },
   mounted () {
-    console.log('Component -> mounted() [START]')
     this.$store.dispatch('getRecipes')
   },
   computed: {

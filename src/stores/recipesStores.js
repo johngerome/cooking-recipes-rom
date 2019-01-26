@@ -62,7 +62,6 @@ const recipesStore = new Vuex.Store({
           '//spreadsheets.google.com/feeds/list/1uf6BPq59HwNnRqxBqbw1KL_a4_g4OAMNngqr4vYuyNM/2/public/full?alt=json'
         )
         .then(response => {
-          console.info('recipesStore -> actions -> [get materials]')
           return response.data.feed.entry.map(material => {
             return {
               id: material.gsx$id.$t,
@@ -81,7 +80,6 @@ const recipesStore = new Vuex.Store({
           '//spreadsheets.google.com/feeds/list/1uf6BPq59HwNnRqxBqbw1KL_a4_g4OAMNngqr4vYuyNM/3/public/full?alt=json'
         )
         .then(response => {
-          console.info('recipesStore -> actions -> [get utensils]')
           return response.data.feed.entry.map(utensil => {
             return {
               id: utensil.gsx$id.$t,
@@ -99,7 +97,6 @@ const recipesStore = new Vuex.Store({
           '//spreadsheets.google.com/feeds/list/1uf6BPq59HwNnRqxBqbw1KL_a4_g4OAMNngqr4vYuyNM/4/public/full?alt=json'
         )
         .then(response => {
-          console.info('recipesStore -> actions -> [get cooking levels]')
           return response.data.feed.entry.map(lvl => {
             return {
               id: lvl.gsx$id.$t,
@@ -119,7 +116,6 @@ const recipesStore = new Vuex.Store({
           '//spreadsheets.google.com/feeds/list/1uf6BPq59HwNnRqxBqbw1KL_a4_g4OAMNngqr4vYuyNM/1/public/full?alt=json'
         )
         .then(response => {
-          console.info('recipesStore -> actions -> [get recipes]')
           return response.data.feed.entry
         })
         .catch(function (error) {
