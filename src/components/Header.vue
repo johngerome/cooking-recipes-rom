@@ -11,7 +11,7 @@
           <div class="flex xs11">
             <div class="display-1 pl-3">Cooking Recipes</div>
             <div class="title pl-3 grey--text text--lighten-1">
-              Ragnarok Mobile Eternal - SEA
+              Ragnarok Mobile Eternal Love - SEA
             </div>
           </div>
 
