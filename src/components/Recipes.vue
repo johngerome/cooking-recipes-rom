@@ -1,7 +1,7 @@
 <template>
   <div>
-    <RecipeFilter :sorts="sorts" default-order="level_desc" @on-input-search="onQuickSearch" @on-change-order="onOrderBy"/>
-    <RecipeList :recipes="cookingRecipes" :searchKeywords="searchKeywords" />
+    <RecipeFilter :sorts="sorts" default-order="level_desc" @on-input-search="onQuickSearch" @on-input-searching="onSearching" @on-change-order="onOrderBy"/>
+    <RecipeList :recipes="cookingRecipes" :searchKeywords="searchKeywords" :isSearching="isSearching"/>
 
     <v-btn
       fixed
@@ -57,11 +57,17 @@ export default {
       ],
       orderBy: '',
       searchKeywords: '',
+      isSearching: false,
       recipes: []
     }
   },
   mounted () {
     this.$store.dispatch('getRecipes')
+  },
+  watch: {
+    cookingRecipes () {
+      this.isSearching = false
+    }
   },
   computed: {
     cookingRecipes: {
@@ -77,13 +83,13 @@ export default {
           const orderField = sortOrderArr[0]
           const orderType = sortOrderArr[1]
 
-          console.log(recipes)
-
-          return this.$store.getters.sortOrderRecipes(
+          const recipesOrderResults = this.$store.getters.sortOrderRecipes(
             recipes,
             orderField,
             orderType
           )
+
+          return recipesOrderResults
         }
 
         return recipes
@@ -96,8 +102,10 @@ export default {
       this.searchKeywords = searchKeywords
     },
     onOrderBy (orderBy) {
-      console.log(orderBy)
       this.orderBy = orderBy
+    },
+    onSearching () {
+      this.isSearching = true
     }
   }
 }

@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import debounce from 'debounce'
+
 export default {
   name: 'RecipeFilter',
   props: [ 'sorts', 'default-order' ],
@@ -38,11 +40,19 @@ export default {
   mounted () {
     this.orderBy = this.defaultOrder
   },
+  created () {
+    // when the component has been created,
+    // we replaced the original method with a debounced version
+    this.onInputQuickSearch = debounce(this.onInputQuickSearch, 300)
+  },
+  watch: {
+    searchKeywords () {
+      this.$emit('on-input-searching')
+    }
+  },
   methods: {
     onInputQuickSearch () {
-      if (this.searchKeywords) {
-        this.$emit('on-input-search', this.searchKeywords)
-      }
+      this.$emit('on-input-search', this.searchKeywords)
     },
     onOrderByChange () {
       if (this.orderBy) {

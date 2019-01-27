@@ -8,6 +8,12 @@
       </v-card-title>
     </v-card>
 
+    <v-card flat v-if="isSearching">
+      <v-card-title>
+        <v-progress-linear :indeterminate="true"></v-progress-linear>
+      </v-card-title>
+    </v-card>
+
     <v-card flat v-if="recipes.length <= 0 && searchKeywords !== ''">
       <v-card-title>
         <v-alert :value="true" type="warning" class="flex xs12">
@@ -129,7 +135,7 @@
 <script>
 export default {
   name: 'RecipeList',
-  props: [ 'recipes', 'searchKeywords' ]
+  props: [ 'recipes', 'searchKeywords', 'isSearching' ]
 }
 </script>
 
