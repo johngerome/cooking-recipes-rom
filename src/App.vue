@@ -2,6 +2,32 @@
   <v-app app>
     <v-content>
       <v-container>
+        <v-alert
+            v-if="hasNewUpdate"
+            :value="true"
+            type="grey darken-2"
+          >
+            <v-layout align-center justify-center row fill-height>
+              <v-flex grow>
+                A new update has arrived
+              </v-flex>
+              <v-flex shrink>
+                <v-btn
+                color="success"
+                @click="updateApp"
+                >
+                  Update
+                </v-btn>
+                <v-btn
+                    flat
+                    @click="hasNewUpdate = false"
+                  >
+                    Close
+                </v-btn>
+              </v-flex>
+            </v-layout>
+          </v-alert>
+
         <v-card>
           <Header />
           <Recipes />
@@ -23,7 +49,12 @@ export default {
   },
   data () {
     return {
-      //
+      hasNewUpdate: false
+    }
+  },
+  methods: {
+    updateApp () {
+      window.location.href = window.location.href + '?updateapp=true'
     }
   }
 }
