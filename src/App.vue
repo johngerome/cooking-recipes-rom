@@ -34,6 +34,21 @@
         </v-card>
       </v-container>
     </v-content>
+
+    <v-snackbar
+      :value="showSystemMessage"
+      :timeout="900000"
+      :top="true"
+    >
+      {{ systemMessage }}
+      <v-btn
+        color="blue"
+        flat
+        @click="showSystemMessage = false"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -49,8 +64,22 @@ export default {
   },
   data () {
     return {
-      hasNewUpdate: false
+      hasNewUpdate: false,
+      showSystemMessage: false,
+      systemMessage: ''
     }
+  },
+  mounted () {
+    let inc = 0;
+    const watchSWorker = setInterval(() => {
+      inc++;
+      if (inc >= 100) { clearInterval(watchSWorker) }
+      if (window.cookingRecipesApp_SWorker.msg) {
+        this.showSystemMessage = true
+        this.systemMessage = window.cookingRecipesApp_SWorker.msg
+        clearInterval(watchSWorker)
+      }
+    })
   },
   methods: {
     updateApp () {

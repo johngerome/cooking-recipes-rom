@@ -2,6 +2,7 @@ import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
 import store from './stores/recipesStores'
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
