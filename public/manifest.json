@@ -1,16 +1,26 @@
 {
   "name": "Cooking Recipes Guide - ROM SEA",
-  "short_name": "Cooking Recipes - ROM",
+  "short_name": "CookingRecipes",
   "icons": [
     {
-      "src": "./img/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "img/icons/apple-touch-icon-48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
     },
     {
-      "src": "./img/icons/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "img/icons/apple-touch-icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/icons/msapplication-icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "img/icons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     }
   ],
   "start_url": "./index.html",
