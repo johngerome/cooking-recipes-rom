@@ -70,9 +70,9 @@ export default {
     }
   },
   mounted () {
-    let inc = 0;
+    let inc = 0
     const watchSWorker = setInterval(() => {
-      inc++;
+      inc++
       if (inc >= 100) { clearInterval(watchSWorker) }
       if (window.cookingRecipesApp_SWorker.msg) {
         this.showSystemMessage = true
