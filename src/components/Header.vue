@@ -1,7 +1,8 @@
 <template>
   <v-img
-      src="https://lh3.googleusercontent.com/MwuLMbo1R5a6Y4Egp_n3dme-owpVSeWdeWpNRDF1gmXRDKpTNCTrlCYIIX7vgd_RsMYNZ4p7jVWLJfF_SyczCgFj_B4wvyhq4DrPveFO0Pt4XwJnMUkYOljIK_iHReyVVTJiL5J3P_Z3yiXIkgcAFrXFt-aquszm3zMoUxeI_283WAiU_TZJ0Bia8tMC3P0gF02_OqfBukbz7E1jpA4q1TfwiilPjQ8hoOL2QmR-fITf8cS2lGpi7q396ki_6aCTjhkXESa5zz6gicvVbhXjfZDdobOqKVZEgHVIe4pEXo_DZGGwnBCZ5nHVnXEZQkMyW4Vfd5pfvA4qFmoBfM7KXp1lREmEEL4gt7C9cJgCxF5z0nJAZROCED63oBTJxEY-vfkdCTrdJer6jZ5jiqH4FI9keM7WrWRCkZ6qzCkGXUbgMAEpld2Z1OAajmkukuxPHP85b9QgJBw5TzHjaGa5xAxVfJIVGr56ngwk11ibtIA55kVuBTa8ZFA1UGrl2sfn_FPgjqptmHA3RwAm7BTd7gPdRNp3rlrBr_zfBaLGVVv9V8sOcM-P8KCX8PzH9xWm_1yVIMSGapJyu2xnSkLRBExTCU2k8_B_Wu5WRNiy1QAzhbkIZGneA7vseEMMOja7UadUptkCqN8BG7n-WcmHwczl=w804-h453-no"
-      gradient="to top, rgba(0,0,0, 0.8) 0%,rgba(254,255,255,0) 100%"
+      :aspect-ratio="16/9"
+      src="https://lh3.googleusercontent.com/56gdqZBBf7QzIlL4jh3jrJhoWn-MAsgufH_UUvlruIjo-RxAQE4rbiBuDnQKyeSPrJcPeKOkck2FB2kfDbKIp4P3O2pzyW_O_Is3-ETeF8obMTgWHLTmCXcGE7OAxIfsY8lfzS57bsDXWbmUmr_IR30yGAlucf5TWFf23HC1tN6F7fDpe_WDM404p2dnktLhYXMccc9DzQKnCUWsN-WhWki3KQeKmNWSDZAqdk7o04jmQ5F1yHNfAumx5titTr7A3r-7xFyBOeRC6UgXvnnpaKFIeAGLXgwGVbl31Ix-RDI4P_MVTlMgrimvmNy30GsuWobB3pa9UalgTqCqpx79dn3FTLIdlnRcOcGeoro3WB7Op1hMvUQWQilPPEyEv9nmS6D2grN8UMwEP27dZDVK1HoqdLGsHRQXWVrNpoAKkmf8uwf-MKTByB0SRfCQWuDork8_pzEy-7crMpNQ4-x7C1n522WFcjDFfDY3yRqjyld9GitCuUrv5yLy_4QDFubcdwGR4oCLhrdRLh79geulrB506Mb9MBjT2hy5ccEgBnlVvAemlwp8rs1FLdfJA11fUlaCPFzBJsM1NjLEl4NVS56V6o9Ol9mmcZBNRlg5yil8v15YPQ-5hBOemHcyg7TcvKDSYgV16BEJ2L05gTOwONMD=w976-h300-no"
+      gradient="to top, rgba(0,0,0, 0.6) 0%,rgba(254,255,255,0) 100%"
       height="300px"
     >
       <v-layout column fill-height>

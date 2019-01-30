@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import { getState } from '@/plugins/localstorage.js'
+import cache from '@/stores/module/recipes'
+import { findGetParameter } from '@/helpers/url'
 
 Vue.use(Vuex)
 
 const recipesStore = new Vuex.Store({
   state: {
     sheetId: '1uf6BPq59HwNnRqxBqbw1KL_a4_g4OAMNngqr4vYuyNM',
-    recipes: []
+    recipes: [],
+    cacheVersion: 1
   },
   getters: {
     recipes (state) {
@@ -53,10 +57,31 @@ const recipesStore = new Vuex.Store({
   mutations: {
     setRecipes (state, payload) {
       state.recipes = payload
+    },
+    loadStateFromCache (state, payload) {
+      console.log('load data from cache')
+      console.log('cache version: ' + payload.cacheVersion)
+      if (payload) {
+        Object.keys(payload).forEach(key => {
+          state[key] = payload[key]
+        })
+      }
     }
   },
   actions: {
     async getRecipes (context, payload) {
+      const forceUpdate = (findGetParameter('updateapp') === 'true')
+
+      // priority cached
+      const cachedState = await getState().then(state => {
+        return state
+      })
+
+      if (cachedState && Object.keys(cachedState).length && (forceUpdate !== true || cachedState.cacheVersion >= context.state.cacheVersion)) {
+        context.commit('loadStateFromCache', cachedState)
+        return
+      }
+
       const materials = await axios
         .get(
           '//spreadsheets.google.com/feeds/list/1uf6BPq59HwNnRqxBqbw1KL_a4_g4OAMNngqr4vYuyNM/2/public/full?alt=json'
@@ -154,9 +179,14 @@ const recipesStore = new Vuex.Store({
         }
       })
 
+      newRecipes.map(item => {
+        return item
+      })
+
       context.commit('setRecipes', newRecipes)
     }
-  }
+  },
+  plugins: [ cache ]
 })
 
 export default recipesStore
