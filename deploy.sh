@@ -3,7 +3,8 @@
 # abort on errors
 set -e
 
-# build
+# Update app version first 
+# then build
 npm run build
 
 # navigate into the build output directory

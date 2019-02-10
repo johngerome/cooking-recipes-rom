@@ -39,6 +39,8 @@ export default {
   },
   mounted () {
     this.orderBy = this.defaultOrder
+    // update the list's order
+    this.onOrderByChange()
   },
   created () {
     // when the component has been created,

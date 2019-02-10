@@ -33,6 +33,7 @@
           <Recipes />
         </v-card>
       </v-container>
+      <div class="text-xs-center"><small>&copy; 2019 app ver: {{ appVersion }}</small></div>
     </v-content>
 
     <v-snackbar
@@ -55,6 +56,7 @@
 <script>
 import Header from './components/Header'
 import Recipes from './components/Recipes'
+import { version } from '../package.json'
 
 export default {
   name: 'App',
@@ -66,7 +68,8 @@ export default {
     return {
       hasNewUpdate: false,
       showSystemMessage: false,
-      systemMessage: ''
+      systemMessage: '',
+      appVersion: ''
     }
   },
   mounted () {
@@ -80,6 +83,7 @@ export default {
         clearInterval(watchSWorker)
       }
     })
+    this.appVersion = version
   },
   methods: {
     updateApp () {
