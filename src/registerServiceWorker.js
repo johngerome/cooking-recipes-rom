@@ -31,10 +31,10 @@ if (process.env.NODE_ENV === 'production') {
     },
     updatefound () {
       console.log('New content is available; please refresh.')
-      // window.cookingRecipesApp_SWorker = {
-      //   type: 'updatefound',
-      //   msg: 'New content is available; please refresh.'
-      // }
+      window.cookingRecipesApp_SWorker = {
+        type: 'updatefound',
+        msg: 'New content is available; please refresh.'
+      }
     },
     updated () {
       console.log('Content up-to-date')

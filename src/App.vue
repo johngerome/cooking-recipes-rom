@@ -9,15 +9,9 @@
           >
             <v-layout align-center justify-center row fill-height>
               <v-flex grow>
-                A new update has arrived
+                New Update available! Please refresh
               </v-flex>
               <v-flex shrink>
-                <v-btn
-                color="success"
-                @click="updateApp"
-                >
-                  Update
-                </v-btn>
                 <v-btn
                     flat
                     @click="hasNewUpdate = false"
@@ -33,7 +27,7 @@
           <Recipes />
         </v-card>
       </v-container>
-      <div class="text-xs-center"><small>&copy; 2019 app ver: {{ appVersion }}</small></div>
+      <div class="text-xs-center"><small>&copy; 2019, version: {{ appVersion }}</small></div>
     </v-content>
 
     <v-snackbar
@@ -76,20 +70,17 @@ export default {
     let inc = 0
     const watchSWorker = setInterval(() => {
       inc++
-      if (inc >= 100) { clearInterval(watchSWorker) }
+      if (inc >= 2000) { clearInterval(watchSWorker) }
       if (window.cookingRecipesApp_SWorker.msg) {
         this.showSystemMessage = true
         this.systemMessage = window.cookingRecipesApp_SWorker.msg
+        window.cookingRecipesApp_SWorker.msg = ''
         clearInterval(watchSWorker)
       }
-    })
+    }, 200)
     this.appVersion = version
   },
-  methods: {
-    updateApp () {
-      window.location.href = window.location.href + '?updateapp=true'
-    }
-  }
+  methods: {}
 }
 </script>
 
